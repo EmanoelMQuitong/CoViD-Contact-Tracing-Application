@@ -1,14 +1,22 @@
 
 Consent Form for Data Collection for COVID-19 Contact Tracing
+
 You hereby provide my consent for the collection and processing of my personal data Company XYZ for the purpose of implementing a safety protocol related to COVID-19 contact tracing.
+
 1.	Purpose of Data Collection: The data collected will be used to implement and manage safety measures, including COVID-19 contact tracing, in accordance with the applicable guidelines and regulations issued by the health authorities.
+
 2.	Types of Data Collected: The data collected for contact tracing may include but is not limited to:
 -   Full name
 -   Contact information (phone number, email address)
 -   Date and time of visit
 -   Health status related to COVID-19 (e.g., symptoms, test results)
+
 3.	Data Storage and Retention: Company XYZ will store the collected data securely and will retain it only for as long as necessary to fulfill the purpose of contact tracing or as required by law.
+
 4.	Data Sharing: Company XYZ may share the collected data with relevant health authorities or government agencies solely for the purpose of COVID-19 contact tracing and public health measures.
+
 5.	Voluntary Participation: Participation in this data collection is entirely voluntary, and you have the right to refuse to provide your consent or withdraw your consent at any time without any adverse consequences. However, please note that refusing to participate or withdrawing consent may limit your access to certain facilities or services.
+
 6.	Data Protection: Company XYZ are committed to protecting your personal data and will implement appropriate technical and organizational measures to safeguard it from unauthorized access, disclosure, or misuse.
-By agreeing in this form will be in the action of checking the checkbox that follows below. This means that you have read and understood the information above and willingly permit company for the collection and processing of your personal data for the stated purpose.
+
+    By agreeing in this form will be in the action of checking the checkbox that follows below. This means that you have read and understood the information above and willingly permit company for the collection and processing of your personal data for the stated purpose.
