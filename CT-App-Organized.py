@@ -9,13 +9,13 @@ class CCT:
         self.root.geometry("500x500")
         self.root.title("Covid Contact Tracing Application")
 
-        self.Main_frame = tk.Frame(self.root)
+        self.Main_frame = tk.Frame(self.root, )
 
         self.Main_frame.pack(fill="both", expand=1)
 
         #Create a label as title
-        self.label = tk.Label(self.Main_frame, text="Welcome!", font=("Times New Roman",20))
-        self.label.pack(side='top', padx=10,pady=10)
+        self.label = tk.Label(self.Main_frame, text="Welcome! This is company XYZ contact tracing app. To proceed, please kindly read the information below. Click the check box below and press next.", justify="left",wraplength= "500", font=("Helvetica",8))
+        self.label.pack(side='top', fill= "both")
 
         #Create Second Frame    
         self.sec_frame = tk.Frame(self.Main_frame)
@@ -42,19 +42,19 @@ class CCT:
 
         #Insert text on a second frame
         self.cf = 'ConsentForm.txt'
-        self.welc_msg = tk.Label(self.welc_msg_frame, justify="left",wraplength= "450", text= self.read_file('ConsentForm.txt'), bg='white',font=("Times New Roman",8))
-        self.welc_msg.pack(padx=10,pady=20)
+        self.welc_msg = tk.Label(self.welc_msg_frame, relief='sunken',borderwidth=3, justify="left",wraplength= "450", text= self.read_file('ConsentForm.txt'), bg='white',font=("Times New Roman",8))
+        self.welc_msg.pack(padx=10)
 
         #Create IntVar function
         self.check_agree = tk.IntVar()
 
         #Create Agreement checkbox button
-        self.agree=tk.Checkbutton(self.root, text=" I have read and understood the information above. I hereby agree and give consent to use my personal information by the stated purposes only. ", justify="left",wraplength= "300", font=("Arial", 8, "underline"), variable=self.check_agree)
+        self.agree=tk.Checkbutton(self.root, text=" I have read and understood the information above. I hereby agree and give consent to use my personal information by the stated purposes only. ", justify="left",wraplength= "400", font=("Arial", 8, "underline"), variable=self.check_agree)
         self.agree.pack(side='left',padx=10, pady=10, expand=1, fill="both")
 
         #Add next button
-        self.nextbutton = tk.Button(self.root, text="Next >",font=("Arial",12), command=self.move_to_next)
-        self.nextbutton.pack(side='top', padx=10, pady=10,expand=1,fill="both")
+        self.nextbutton = tk.Button(self.root, text="Next >",font=("Arial",12), command=self.move_to_next1)
+        self.nextbutton.pack(side='top', padx=10, pady=10,fill="both")
 
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
         self.root.mainloop()
@@ -74,9 +74,18 @@ class CCT:
         except IOError:
             print(f'Error reading file: {cf}')
 
-    def move_to_next(self):
-        print("Hellow world")
-        print(self.check_agree.get())
+    def move_to_next1(self):
+        if self.check_agree.get()==0:
+            messagebox.showinfo(title="To Proceed", message="Please click the check box before you proceed.")
+        else:
+            self.PI = tk.Toplevel(self.root)
+            self.PI.geometry("500x500")
+            self.PI.title("Personal Information")
+
+
+            self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
+            self.PI.mainloop()
+
 
 
 
