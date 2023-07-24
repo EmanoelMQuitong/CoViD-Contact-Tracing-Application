@@ -1,5 +1,5 @@
 import tkinter as tk
-
+from tkinter import messagebox
 class CCT:
 
     def __init__(self):
@@ -56,7 +56,12 @@ class CCT:
         self.nextbutton = tk.Button(self.root, text="Next >",font=("Arial",12), command=self.move_to_next)
         self.nextbutton.pack(side='top', padx=10, pady=10,expand=1,fill="both")
 
+        self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
         self.root.mainloop()
+
+    def on_closing(self):
+        if messagebox.askyesno(title="Are you sure?", message="Do you really want to quit?"):
+            self.root.destroy()
 
     def read_file(self, cf):
         try:
@@ -71,6 +76,8 @@ class CCT:
 
     def move_to_next(self):
         print("Hellow world")
+        print(self.check_agree.get())
+
 
 
 
