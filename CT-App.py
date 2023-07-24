@@ -11,8 +11,9 @@ def read_file(cf):
     except IOError:
         print(f'Error reading file: {cf}')
 
+def next(self):
+    print("Hellow world")
 
-def next_button()
 
 root = tk.Tk()
 
@@ -27,10 +28,6 @@ Main_frame.pack(fill="both", expand=1)
 #Create a label as title
 label = tk.Label(Main_frame, text="Welcome!", font=("Times New Roman",20))
 label.pack(side='top', padx=10,pady=10)
-
-#Create Second Frame    
-sec_frame = tk.Frame(Main_frame)
-sec_frame.pack(side="top", fill="both",)
 
 #Create a canvas
 my_canvas = tk.Canvas(Main_frame)
@@ -60,11 +57,12 @@ welc_msg.pack(padx=10,pady=20)
 check_agree = tk.IntVar()
 
 #Create Agreement checkbox button
-agree= tk.Checkbutton(Main_frame, text=" I have read and understood the information above. I hereby agree and give consent to use my personal information by the stated purposes only. " font=("Arial",  8), variable=check_agree)
+agree=tk.Checkbutton(root, text=" I have read and understood the information above. I hereby agree and give consent to use my personal information by the stated purposes only. ",justify="left",wraplength= "300", font=("Arial", 8, "underline"), variable=check_agree)
+agree.pack(side='left',padx=10, pady=10, expand=1, fill="both")
 
 #Add next button
-nextbutton = tk.Button(Main_frame, text="Next >",font=("Arial",12))
-nextbutton.pack(side='right', padx=10, pady=10)
+nextbutton = tk.Button(root, text="Next >",font=("Arial",12))
+nextbutton.pack(side='top', padx=10, pady=10,expand=1,fill="both")
 
 root.mainloop()
 
