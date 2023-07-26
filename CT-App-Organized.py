@@ -151,13 +151,13 @@ class CCT:
             
             
             #Next Button
-            nextbutton = tk.Button(self.textframe, text="Next >",font=("Arial",12),command =self.move_to_next)
+            nextbutton = tk.Button(self.textframe, text="Next >",font=("Arial",12),command =self.move_to_next2)
             nextbutton.place(x=430,y=450)
 
             self.PI.protocol("WM_DELETE_WINDOW", self.on_closing)
             self.PI.mainloop()
 
-    def move_to_next(self):
+    def move_to_next2(self):
             print(self.Name.get())
             print(self.Age.get())
             print(self.Status.get())

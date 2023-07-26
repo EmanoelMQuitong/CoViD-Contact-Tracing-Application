@@ -87,8 +87,44 @@ class CCT:
 
 
 
+        #Contact Person Details
+
+        #Contact Person Title Frame
+        self.TextTitle1 = tk.Frame(self.textframe1, relief='raise', bd=3,width=450, height=50).place(x=20,y=10)
+
+        #Contact Person Title
+        PCD = tk.Label(self.textframe1, text="CONTACT PERSON DETAILS:", font=("arial bold ", 16)).place(x=100, y=20)
+       
+       
+        #Contact Person Variables
+        self.CP_Name = tk.StringVar()
+        self.CP_Relationship= tk.StringVar()
+        self.CP_CN = tk.StringVar()
+        self.CP_EA = tk.StringVar()
+
+        #Contact Person Entries
+        Name=tk.Entry(self.textframe1, textvariable=self.CP_Name, width=40, bd=2, font=("arial", 12)).place(x=90, y=75)
+        Relationship=tk.Entry(self.textframe1, textvariable=self.CP_Relationship, width=40, bd=2, font=("arial", 12)).place(x=90, y=175)
+        CN=tk.Entry(self.textframe1, textvariable=self.CP_CN, width=40, bd=2, font=("arial", 12)).place(x=90, y=270)
+        EA=tk.Entry(self.textframe1, textvariable=self.CP_EA, width=40, bd=2, font=("arial", 12)).place(x=90, y=370)
 
 
+        #Contact Person Labels
+        NAME = tk.Label(self.textframe1, text="Name: ",  font=("arial ",12)).place(x=20,y=75)
+        e1 = tk.Label(self.textframe1, text="*Example: Juan Dela Cruz", font=("arial ",8)).place(x=90,y=100)
+        r1 = tk.Label(self.textframe1, text="*Required",  fg='red',font=("arial ",8)).place(x=400,y=100)
+
+        RELATION = tk.Label(self.textframe1, text="Relation: ",  font=("arial ",12)).place(x=20,y=175)
+        e2 = tk.Label(self.textframe1, text="*Family/Father/Mother/Brother/Sister",  font=("arial ",8)).place(x=90,y=200)
+        r2 = tk.Label(self.textframe1, text="*Required",  fg='red',font=("arial ",8)).place(x=400,y=200)
+
+        CONTACT_NUMBER = tk.Label(self.textframe1,justify='left',wraplength=100, text="Contact Number: ",  font=("arial ",12)).place(x=20,y=250)
+        e2 = tk.Label(self.textframe1, text="*63+ 9** *** **** ",  font=("arial ",8)).place(x=90,y=300)
+        r2 = tk.Label(self.textframe1, text="*Required",  fg='red',font=("arial ",8)).place(x=400,y=300)
+            
+        EMAIL_ADDRESS = tk.Label(self.textframe1,justify='left',wraplength=100, text="Email Address: ",  font=("arial ",12)).place(x=20,y=350)
+        e2 = tk.Label(self.textframe1, text="*JuanDelaCruz@hotmail.com ",  font=("arial ",8)).place(x=90,y=400)
+        r2 = tk.Label(self.textframe1, text="*Required",  fg='red',font=("arial ",8)).place(x=400,y=400)
 
 
         #Button Frame 1
