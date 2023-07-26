@@ -10,6 +10,11 @@ class CCT:
 
         self.welcome = tk.Tk()
         
+        #Change Application Icon
+        Change_Icon = 'COVID ICON.png' 
+        new_icon =tk.PhotoImage(file=Change_Icon)
+        self.welcome.iconphoto(True, new_icon)
+
         #Create a main frame
         self.welcome.geometry("500x500")
         self.welcome.title("Covid Contact Tracing Application")
