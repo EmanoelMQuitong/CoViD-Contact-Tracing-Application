@@ -20,25 +20,31 @@ class Search_Entry():
         #Create Label
         Username = tk.Label(Main_frame, text="Username: ", fg='white',bg='dark slate gray', font=("helvetica",10)).place(x=65,y=50)
         Password = tk.Label(Main_frame, text="Password: ", fg='white',bg='dark slate gray', font=("helvetica",10)).place(x=65,y=125)
+        
+        #Create Variables
+        self.User = tk.StringVar()
+        self.Pass = tk.StringVar()
+        self.User.set('******')
+        self.Pass.set('******')
+
         #Create Entries
+        username = tk.Entry(Main_frame, font=("helvetica",10), justify='center', textvariable=self.User, relief='sunken', bd=2).place(x=25,y=25)
+        password = tk.Entry(Main_frame, font=("helvetica",10),justify='center', textvariable=self.Pass, relief='sunken', bd=2, show='*').place(x=25,y=100)
+
+
         #Create Enter Button
+        enter = tk.Button(Main_frame, text='ENTER', font=('arial', 12), command=self.Enter). place(x=125, y=160)
         #Create Reset Button
+        reset = tk.Button(Main_frame, text='RESET', font=('arial', 12), command= self.Reset). place(x=10, y=160)
 
         root.mainloop()
 
-    def read_file(cf):
-        try:
-            with open(cf, 'r') as file:
-                content = file.read()
-                return content
-        
-        except FileNotFoundError:
-            print(f'File not found: {cf}')
-        except IOError:
-            print(f'Error reading file: {cf}')
-
-def next(self):
-    print("Hellow world")
+    def Enter(self):
+        pass
+    
+    def Reset(self):
+        self.User.set('******')
+        self.Pass.set('******')
 
 
 sample = Search_Entry()
