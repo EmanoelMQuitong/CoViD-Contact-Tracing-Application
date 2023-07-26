@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import PhotoImage
 
 class CCT:
 
@@ -18,8 +19,13 @@ class CCT:
         self.blank = tk.Frame(self.Main_frame,bg='white', width=100, height=50  )
         self.blank.pack(fill="both", expand=1)
 
+        
+
         #Text Frame 1 Title
         self.TextTitle = tk.Frame(self.Main_frame, relief='raise', bd=3,width=986, height=50).place(x=2,y=2)
+
+        #Main Title
+        main_title = tk.Label(self.Main_frame, text='Please confirm the following information...', font=('times new roman bold', 20)).place(x=3,y=5)
 
         #Text frame 1
         self.textframe = tk.Frame(self.blank, relief='groove',bd=3, width=495, height=500 )
@@ -69,14 +75,20 @@ class CCT:
 
         #Contact Person Labels
         s_CP_name = tk.Label(self.textframe1, text='Name:', font=('times new roman', 12)).place(x=5,y=80)
-        s_CP_Relationship = tk.Label(self.textframe1, text='Relationship:', font=('times new roman', 12)).place(x=5,y=108)
-        s_CP_CN = tk.Label(self.textframe1, text='Contact Number:', font=('times new roman', 12)).place(x=5,y=136)
-        s_CP_Address = tk.Label(self.textframe1, text='Address:', font=('times new roman', 12)).place(x=5,y=190)
+        s_CP_Relationship = tk.Label(self.textframe1, text='Relationship:', font=('times new roman', 12)).place(x=5,y=120)
+        s_CP_CN = tk.Label(self.textframe1, text='Contact Number:', font=('times new roman', 12)).place(x=5,y=160)
+        s_CP_Address = tk.Label(self.textframe1, text='Address:', font=('times new roman', 12)).place(x=5,y=200)
 
         #Contact Person Entries
 
-        
-        
+        #Border
+        border5 = tk.Frame(self.textframe1, bg='dark slate gray',relief='raised',bd=2, width=600,height=5).place(x=0,y=250)
+
+        #Insert Image
+        Photo = "COVID_img.png"  
+        image = PhotoImage(file=Photo)
+
+        poster = tk.Label(self.textframe1, image=image).place(x=100, y=260)
 
         #Button Frame 1
         self.buttonframe = tk.Frame(self.blank,relief='groove', bd=3, width=500, height=50  )
@@ -101,5 +113,6 @@ class CCT:
 
     def setvariables(self):
         pass
+
 cct_app = CCT()
 
