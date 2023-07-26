@@ -26,7 +26,70 @@ class CCT:
         
         #Text Frame 2
         self.textframe1 = tk.Frame(self.blank, relief='groove', bd=3, width=500, height=450  )
-        self.textframe1.place(x=492,y=0) 
+        self.textframe1.place(x=492,y=0)
+
+        
+
+        #Text Frame 1 Title
+        self.TextTitle = tk.Frame(self.textframe, relief='raise', bd=3,width=450, height=50).place(x=20,y=10)
+
+        #Set Variables
+        V1 = tk.StringVar()
+        V1.set('Not yet')
+        S1 = tk.StringVar()
+        S1.set('Yes')
+        E1 = tk.StringVar()
+        E1.set('Yes')
+        CC1 = tk.StringVar()
+        CC1.set('Yes')
+        CT1 = tk.StringVar()
+        CT1.set('No')
+
+        #Title 
+        HDF = tk.Label(self.TextTitle, text="HEALTH DECLARATION:",  font=("arial bold ",16)).place(x=140,y=30)
+
+        #Questions and Radiiobuttons
+        Vaccination = tk.Label(self.textframe, text="1.	Have you been vaccinated for COVID-19? ",  font=("arial ",10)).place(x=20,y=75)
+        r1 = tk.Label(self.textframe, text="*Required",  fg='red',font=("arial ",8)).place(x=400,y=75)
+        
+        V1_1 = tk.Radiobutton(self.textframe, text='Not yet', variable=V1, value='Not yet').place(x=50,y=100)
+        V1_2 = tk.Radiobutton(self.textframe, text='1st Dose', variable=V1, value='1st Dose').place(x=50,y=125)
+        V1_3 = tk.Radiobutton(self.textframe, text='2nd Dose', variable=V1, value='2nd Dose(Complete Vaccination)').place(x=200,y=100)
+        V1_4 = tk.Radiobutton(self.textframe, text='1st Booster Shot', variable=V1, value='1st Booster Shot').place(x=200,y=125)
+        V1_5 = tk.Radiobutton(self.textframe, text='2nd Booster Shot', variable=V1, value='2nd Booster Shot').place(x=300,y=100)
+
+
+        Symptoms = tk.Label(self.textframe, text="2.	Are you experiencing any symptoms in the past 7 days such as body pains, headache, sore throat, fever, diarrhea, cough, colds, shortness of breath, loss of taste, or loss of smell?",justify="left", wraplength=450, font=("arial ",8)).place(x=20,y=150)
+        
+        S1_1 = tk.Radiobutton(self.textframe, text='Yes', variable=S1, value='Yes').place(x=50,y=200)
+        S1_2 = tk.Radiobutton(self.textframe, text='No', variable=S1, value='No').place(x=200,y=200)
+        
+
+        Exposure = tk.Label(self.textframe, text="3.	Have you had exposure to a probable or confirmed case in the last 14 days?",  justify='left',wraplength=450,font=("arial ",10)).place(x=20,y=250)
+        
+        E1_1 = tk.Radiobutton(self.textframe, text='Yes', variable=E1, value='Yes').place(x=50,y=290)
+        E1_2 = tk.Radiobutton(self.textframe, text='No', variable=E1, value='No').place(x=200,y=290)
+        E1_3 = tk.Radiobutton(self.textframe, text='Uncertain', variable=E1, value='Uncertain').place(x=350,y=290)
+
+        CovidContact = tk.Label(self.textframe, text="4.	Have you had contact with somebody with body pains, headache, sore throat, fever, diarrhea, cough, colds, shortness of breath, loss of taste, or loss of smell in the past 7 days?", justify='left',wraplength=450,font=("arial ",8)).place(x=20,y=325)
+
+        CC1_1 = tk.Radiobutton(self.textframe, text='Yes', variable=CC1, value='Yes').place(x=50,y=370)
+        CC1_2 = tk.Radiobutton(self.textframe, text='No', variable=CC1, value='No').place(x=200,y=370)
+        CC1_3 = tk.Radiobutton(self.textframe, text='Uncertain', variable=CC1, value='Uncertain').place(x=350,y=370)
+
+        CovidTest = tk.Label(self.textframe, text="5.	Have you been tested for COVID-19 in the last 14 days?",  font=("arial ",10)).place(x=20,y=400)
+
+        CT1_1 = tk.Radiobutton(self.textframe, text='No', variable=CT1, value='No').place(x=50,y=425)
+        CT1_2 = tk.Radiobutton(self.textframe, text='Yes-Positive', variable=CT1, value='Yes-Positive').place(x=200,y=425)
+        CT1_3 = tk.Radiobutton(self.textframe, text='Yes-Negative', variable=CT1, value='Yes-Negative').place(x=50,y=450)
+        CT1_4 = tk.Radiobutton(self.textframe, text='Yes-Pending', variable=CT1, value='Yes-Pending').place(x=200,y=450)   
+
+
+
+
+
+
+
 
         #Button Frame 1
         self.buttonframe = tk.Frame(self.blank,relief='groove', bd=3, width=500, height=50  )
@@ -52,5 +115,8 @@ class CCT:
 
     def next_to_page4(self):
         print("Hellow")
+
+    def setvariables(self):
+        pass
 cct_app = CCT()
 
