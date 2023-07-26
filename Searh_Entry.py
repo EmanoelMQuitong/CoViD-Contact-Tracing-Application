@@ -67,9 +67,17 @@ class Search_Entry():
             #Text Frame 1 Title
             self.TextTitle = tk.Frame(self.Main_frame, relief='raise', bd=3,width=986, height=50).place(x=2,y=2)
 
-            #Main Title
-            main_title = tk.Label(self.Main_frame, text='Please confirm the following information...', font=('times new roman bold', 20)).place(x=3,y=5)
+            #Search Text
+            main_title = tk.Label(self.Main_frame, text='Search Here: ', font=('times new roman bold', 20)).place(x=3,y=5)
 
+            #Search Button
+            SB = tk.Button(self.Main_frame, text="Search",font=('times new roman bold', 16), command=self.search).place(x=890,y=5)
+
+            #Search Variable
+            #Search Entry
+            search_entry = tk.Entry(self.Main_frame, width =50,relief='sunken', bd=3,font=('times new roman bold', 20)).place(x=175,y=5)
+
+            
             #Text frame 1
             self.textframe = tk.Frame(self.blank, relief='groove',bd=3, width=495, height=500 )
             self.textframe.place(x=0,y=0)
@@ -137,22 +145,25 @@ class Search_Entry():
             self.buttonframe = tk.Frame(self.blank,relief='groove', bd=3, width=500, height=50  )
             self.buttonframe.place(x=492,y=450)
 
-            #Page 4 Back Button
-            pg3_back = tk.Button(self.buttonframe, text="< Back",font=("arial underline",12),command=self.back_to_page3)
+            #Reset Button
+            pg3_back = tk.Button(self.buttonframe, text="Reset",font=("arial underline",12),command=self.Reset1)
             pg3_back.place(x=5,y=3)
 
-            #Page 4 Confirm Button
-            pg3_next = tk.Button(self.buttonframe, text="Confirm",font=("arial underline",12),command=self.next_to_page5)
+            #Finish Button
+            pg3_next = tk.Button(self.buttonframe, text="Finish",font=("arial underline",12),command=self.Finish)
             pg3_next.place(x=415,y=3)
 
             self.SE.protocol("WM_DELETE_WINDOW", self.on_closing)
             self.SE.mainloop()
 
-    def back_to_page3(self):
-        print("HI")
+    def Reset1(self):
+        print("Reset")
 
-    def next_to_page5(self):
-        print("Hellow")
+    def Finish(self):
+        print("Finish")
+    
+    def search(self):
+        print("Search")
 
     def Reset(self):
         self.User.set('******')
