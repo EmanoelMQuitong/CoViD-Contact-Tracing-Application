@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import PhotoImage
+from store import store
 
 class CCT:
 
@@ -82,10 +83,6 @@ class CCT:
         except IOError:
             print(f'Error reading file: {cf}')
 
-
-    
-        
-
     #Command to move to next window when "next >" is clicked
     def move_to_next1(self):
         if self.check_agree.get()==0:
@@ -117,7 +114,7 @@ class CCT:
 
             #String Variables
             self.Name=tk.StringVar()
-            self.Age=tk.StringVar()
+            self.Birthday=tk.StringVar()
             self.Status=tk.StringVar()
             self.Status.set('Single')
             self.Address=tk.StringVar()
@@ -128,8 +125,8 @@ class CCT:
             e1 = tk.Label(self.textframe, text="*Example: Juan Dela Cruz", font=("arial ",8)).place(x=90,y=100)
             r1 = tk.Label(self.textframe, text="*Required",  fg='red',font=("arial ",8)).place(x=400,y=100)
 
-            AGE = tk.Label(self.textframe, text="Age: ",  font=("arial ",12)).place(x=20,y=150)
-            e2 = tk.Label(self.textframe, text="*Please state your age. ",  font=("arial ",8)).place(x=90,y=175)
+            BIRTHDAY = tk.Label(self.textframe, text="Birthday: ",  font=("arial ",12)).place(x=20,y=150)
+            e2 = tk.Label(self.textframe, text="*January 1, 1999. ",  font=("arial ",8)).place(x=90,y=175)
             r2 = tk.Label(self.textframe, text="*Required",  fg='red',font=("arial ",8)).place(x=400,y=175)
 
             STATUS = tk.Label(self.textframe, text="Status: ",  font=("arial ",12)).place(x=20,y=225)
@@ -146,7 +143,7 @@ class CCT:
 
             #Entries   
             entry_Name=tk.Entry(self.textframe, textvariable=self.Name, width=40, bd=2, font=("arial", 12)).place(x=90, y=75)
-            entry_Age=tk.Entry(self.textframe, textvariable=self.Age, width=40, bd=2, font=("arial", 12)).place(x=90, y=150)
+            entry_Birthday=tk.Entry(self.textframe, textvariable=self.Birthday, width=40, bd=2, font=("arial", 12)).place(x=90, y=150)
             entry_Status1=tk.Radiobutton(self.textframe, text='Single',font=("arial", 12),value='Single',variable=self.Status).place(x=125, y=225)
             entry_Status2=tk.Radiobutton(self.textframe, text='Married',font=("arial", 12),value='Married',variable=self.Status).place(x=275, y=225)
 
@@ -163,7 +160,7 @@ class CCT:
 
     #Move to second Page
     def move_to_next2(self):
-        if self.Name.get()=='' or self.Age.get()=='' or self.Status.get()=='' or self.Address.get()=='' or self.Room.get()=='':
+        if self.Name.get()=='' or self.Birthday.get()=='' or self.Status.get()=='' or self.Address.get()=='' or self.Room.get()=='':
             messagebox.showinfo(title="INVALID!", message="Please fill all the entry boxes.")
         else:
             #Hide the 2nd window
@@ -309,8 +306,6 @@ class CCT:
             self.HI.withdraw()
             self.PI.deiconify()
 
-
-
     def move_to_page4(self):
         if self.CP_Name.get()=='' or self.CP_Relationship.get()=='' or self.CP_CN.get()=='' or self.CP_EA.get()=='':
             messagebox.showinfo(title="INVALID!", message="Please fill all the entry boxes.")
@@ -318,21 +313,7 @@ class CCT:
         elif len(self.CP_CN.get())!= 10:
             messagebox.showinfo(title="INVALID!", message="Please insert 10 digits only.")
         else:
-            print(self.Name.get())
-            print(self.Age.get())
-            print(self.Status.get())
-            print(self.Address.get())
-            print(self.Room.get())
-            print(self.V1.get())
-            print(self.S1.get())
-            print(self.E1.get())
-            print(self.CC1.get())
-            print(self.CT1.get())
-            print(self.CP_Name.get())
-            print(self.CP_Relationship.get())
-            print(self.CP_CN.get())
-            print(self.CP_EA.get())
-
+            #Hide Page 3
             self.HI.withdraw()
 
             #Create a new Window
@@ -372,7 +353,7 @@ class CCT:
             
             #Personal Information Labels
             s_name = tk.Label(self.textframe, text='Name:', font=('times new roman', 12)).place(x=5,y=80)
-            s_age = tk.Label(self.textframe, text='Age:', font=('times new roman', 12)).place(x=5,y=108)
+            s_birthday = tk.Label(self.textframe, text='Birthday:', font=('times new roman', 12)).place(x=5,y=108)
             s_status = tk.Label(self.textframe, text='Status:', font=('times new roman', 12)).place(x=5,y=136)
             s_room = tk.Label(self.textframe, text='Room:', font=('times new roman', 12)).place(x=5,y=162)
             s_address = tk.Label(self.textframe, text='Address:', font=('times new roman', 12)).place(x=5,y=190)
@@ -380,7 +361,7 @@ class CCT:
 
             #Personal Information Entries
             s_name = tk.Label(self.textframe, text=self.Name.get(), font=('times new roman', 12)).place(x=100,y=80)
-            s_age = tk.Label(self.textframe, text=self.Age.get(), font=('times new roman', 12)).place(x=100,y=108)
+            s_birthday = tk.Label(self.textframe, text=self.Birthday.get(), font=('times new roman', 12)).place(x=100,y=108)
             s_status = tk.Label(self.textframe, text=self.Status.get(), font=('times new roman', 12)).place(x=100,y=136)
             s_room = tk.Label(self.textframe, text=self.Room.get(), font=('times new roman', 12)).place(x=100,y=162)
             s_address = tk.Label(self.textframe, text=self.Address.get(),wraplength=300,justify='left', font=('times new roman', 11)).place(x=100,y=190)
@@ -447,7 +428,7 @@ class CCT:
             pg3_back.place(x=5,y=3)
 
             #Page 4 Confirm Button
-            pg3_next = tk.Button(self.buttonframe, text="Confirm",font=("arial underline",12),command=self.next_to_page5)
+            pg3_next = tk.Button(self.buttonframe, text="Confirm",font=("arial underline",12),command=self.confirm)
             pg3_next.place(x=415,y=3)
 
             self.SI.protocol("WM_DELETE_WINDOW", self.on_closing)
@@ -457,9 +438,12 @@ class CCT:
         self.SI.withdraw()
         self.HI.deiconify()
 
-    def next_to_page5(self):
-        print("Hellow")
-
+    def confirm(self):
+        Store_inf = store(self.Name.get(),self.Birthday.get(),self.Status.get(),self.Room.get(),self.Address.get(), self.V1.get(),self.S1.get(),self.E1.get(),self.CC1.get(),
+                          self.CT1.get(),self.CP_Name.get(),self.CP_Relationship.get(),self.CP_CN.get(),self.CP_EA.get(),)
+        Store_inf.keep()
+        self.welcome.destroy()
+        messagebox.showinfo(title="Covid Contact Tracing Applicaiton", message="Thank you for your cooperation!")
         
         
 
