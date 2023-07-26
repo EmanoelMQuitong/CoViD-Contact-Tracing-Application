@@ -4,7 +4,7 @@ class CCT:
 
     def __init__(self):
 
-
+        #Create a new Window
         self.HI = tk.Tk()
         
         
