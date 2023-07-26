@@ -5,20 +5,21 @@ class CCT:
     def __init__(self):
 
         #Create a new Window
-        self.HI = tk.Tk()
-        
-        
-        self.HI.geometry("1000x500")
-        self.HI.title("Covid Contact Tracing Application")
-        self.HI.resizable(False,False)
+        self.SI = tk.Tk()
+        self.SI.geometry("1000x500")
+        self.SI.title("Covid Contact Tracing Application")
+        self.SI.resizable(False,False)
 
         #Create a main frame
-        self.Main_frame = tk.Frame(self.HI, bg='lemon chiffon', relief = "sunken", bd=5 )
+        self.Main_frame = tk.Frame(self.SI, bg='lemon chiffon', relief = "sunken", bd=5 )
         self.Main_frame.pack(fill="both", expand=1)
 
         #Create Frames
         self.blank = tk.Frame(self.Main_frame,bg='white', width=100, height=50  )
         self.blank.pack(fill="both", expand=1)
+
+        #Text Frame 1 Title
+        self.TextTitle = tk.Frame(self.Main_frame, relief='raise', bd=3,width=986, height=50).place(x=2,y=2)
 
         #Text frame 1
         self.textframe = tk.Frame(self.blank, relief='groove',bd=3, width=495, height=500 )
@@ -28,128 +29,74 @@ class CCT:
         self.textframe1 = tk.Frame(self.blank, relief='groove', bd=3, width=500, height=450  )
         self.textframe1.place(x=492,y=0)
 
+        #Personal Information Title
+        PI_title= tk.Label(self.textframe, text='Personal Information:', font=('times new roman bold', 16),wraplength=400, justify="center", fg='black').place(x=5,y=50)
+        border1 = tk.Frame(self.textframe, bg='dark slate gray',relief='raised',bd=2, width=600,height=5).place(x=0,y=75)
+        border2 = tk.Frame(self.textframe, bg='dark slate gray',relief='raised',bd=2, width=600,height=5).place(x=0,y=50)
+        
+        #Personal Information Labels
+        s_name = tk.Label(self.textframe, text='Name:', font=('times new roman', 12)).place(x=5,y=80)
+        s_age = tk.Label(self.textframe, text='Age:', font=('times new roman', 12)).place(x=5,y=108)
+        s_status = tk.Label(self.textframe, text='Status:', font=('times new roman', 12)).place(x=5,y=136)
+        s_room = tk.Label(self.textframe, text='Room:', font=('times new roman', 12)).place(x=5,y=162)
+        s_address = tk.Label(self.textframe, text='Address:', font=('times new roman', 12)).place(x=5,y=190)
         
 
-        #Text Frame 1 Title
-        self.TextTitle = tk.Frame(self.textframe, relief='raise', bd=3,width=450, height=50).place(x=20,y=10)
+        #Personal Information Entries
 
-        #Set Variables
-        V1 = tk.StringVar()
-        V1.set('Not yet')
-        S1 = tk.StringVar()
-        S1.set('Yes')
-        E1 = tk.StringVar()
-        E1.set('Yes')
-        CC1 = tk.StringVar()
-        CC1.set('Yes')
-        CT1 = tk.StringVar()
-        CT1.set('No')
+        #Health Declaration Title
+        HDF_title= tk.Label(self.textframe, text='Health Conditions:', font=('times new roman bold', 16),wraplength=400, justify="center", fg='black').place(x=5,y=250)
 
-        #Title 
-        HDF = tk.Label(self.TextTitle, text="HEALTH DECLARATION:",  font=("arial bold ",16)).place(x=140,y=30)
+        #Border
+        border3 = tk.Frame(self.textframe, bg='dark slate gray',relief='raised',bd=2, width=600,height=5).place(x=0,y=275)
+        border4 = tk.Frame(self.textframe, bg='dark slate gray',relief='raised',bd=2, width=600,height=5).place(x=0,y=250)
 
-        #Questions and Radiiobuttons
-        Vaccination = tk.Label(self.textframe, text="1.	Have you been vaccinated for COVID-19? ",  font=("arial ",10)).place(x=20,y=75)
-        r1 = tk.Label(self.textframe, text="*Required",  fg='red',font=("arial ",8)).place(x=400,y=75)
-        
-        V1_1 = tk.Radiobutton(self.textframe, text='Not yet', variable=V1, value='Not yet').place(x=50,y=100)
-        V1_2 = tk.Radiobutton(self.textframe, text='1st Dose', variable=V1, value='1st Dose').place(x=50,y=125)
-        V1_3 = tk.Radiobutton(self.textframe, text='2nd Dose', variable=V1, value='2nd Dose(Complete Vaccination)').place(x=200,y=100)
-        V1_4 = tk.Radiobutton(self.textframe, text='1st Booster Shot', variable=V1, value='1st Booster Shot').place(x=200,y=125)
-        V1_5 = tk.Radiobutton(self.textframe, text='2nd Booster Shot', variable=V1, value='2nd Booster Shot').place(x=300,y=100)
+        #Health Declaration Labels
+        s_V1 = tk.Label(self.textframe, text='Vaccination:', font=('times new roman', 12)).place(x=5,y=290)
+        s_S1= tk.Label(self.textframe, text='Symptoms:', font=('times new roman', 12)).place(x=5,y=330)
+        s_E1 = tk.Label(self.textframe, text='Covid Exposure:', font=('times new roman', 12)).place(x=5,y=370)
+        s_CC1 = tk.Label(self.textframe, text='Covid Contact:', font=('times new roman', 12)).place(x=5,y=410)
+        s_CT1 = tk.Label(self.textframe, text='Covid Tests:', font=('times new roman', 12)).place(x=5,y=450)
 
-
-        Symptoms = tk.Label(self.textframe, text="2.	Are you experiencing any symptoms in the past 7 days such as body pains, headache, sore throat, fever, diarrhea, cough, colds, shortness of breath, loss of taste, or loss of smell?",justify="left", wraplength=450, font=("arial ",8)).place(x=20,y=150)
-        
-        S1_1 = tk.Radiobutton(self.textframe, text='Yes', variable=S1, value='Yes').place(x=50,y=200)
-        S1_2 = tk.Radiobutton(self.textframe, text='No', variable=S1, value='No').place(x=200,y=200)
-        
-
-        Exposure = tk.Label(self.textframe, text="3.	Have you had exposure to a probable or confirmed case in the last 14 days?",  justify='left',wraplength=450,font=("arial ",10)).place(x=20,y=250)
-        
-        E1_1 = tk.Radiobutton(self.textframe, text='Yes', variable=E1, value='Yes').place(x=50,y=290)
-        E1_2 = tk.Radiobutton(self.textframe, text='No', variable=E1, value='No').place(x=200,y=290)
-        E1_3 = tk.Radiobutton(self.textframe, text='Uncertain', variable=E1, value='Uncertain').place(x=350,y=290)
-
-        CovidContact = tk.Label(self.textframe, text="4.	Have you had contact with somebody with body pains, headache, sore throat, fever, diarrhea, cough, colds, shortness of breath, loss of taste, or loss of smell in the past 7 days?", justify='left',wraplength=450,font=("arial ",8)).place(x=20,y=325)
-
-        CC1_1 = tk.Radiobutton(self.textframe, text='Yes', variable=CC1, value='Yes').place(x=50,y=370)
-        CC1_2 = tk.Radiobutton(self.textframe, text='No', variable=CC1, value='No').place(x=200,y=370)
-        CC1_3 = tk.Radiobutton(self.textframe, text='Uncertain', variable=CC1, value='Uncertain').place(x=350,y=370)
-
-        CovidTest = tk.Label(self.textframe, text="5.	Have you been tested for COVID-19 in the last 14 days?",  font=("arial ",10)).place(x=20,y=400)
-
-        CT1_1 = tk.Radiobutton(self.textframe, text='No', variable=CT1, value='No').place(x=50,y=425)
-        CT1_2 = tk.Radiobutton(self.textframe, text='Yes-Positive', variable=CT1, value='Yes-Positive').place(x=200,y=425)
-        CT1_3 = tk.Radiobutton(self.textframe, text='Yes-Negative', variable=CT1, value='Yes-Negative').place(x=50,y=450)
-        CT1_4 = tk.Radiobutton(self.textframe, text='Yes-Pending', variable=CT1, value='Yes-Pending').place(x=200,y=450)   
-
-
-
-
-        #Contact Person Details
-
-        #Contact Person Title Frame
-        self.TextTitle1 = tk.Frame(self.textframe1, relief='raise', bd=3,width=450, height=50).place(x=20,y=10)
+        #Health Declaration Entries
+        #Border
+        border4 = tk.Frame(self.textframe, bg='dark slate gray',relief='raised',bd=2, width=600,height=5).place(x=0,y=480)
 
         #Contact Person Title
-        PCD = tk.Label(self.textframe1, text="CONTACT PERSON DETAILS:", font=("arial bold ", 16)).place(x=100, y=20)
-       
-       
-        #Contact Person Variables
-        self.CP_Name = tk.StringVar()
-        self.CP_Relationship= tk.StringVar()
-        self.CP_CN = tk.StringVar()
-        self.CP_EA = tk.StringVar()
-
-        #Contact Person Entries
-        Name=tk.Entry(self.textframe1, textvariable=self.CP_Name, width=40, bd=2, font=("arial", 12)).place(x=90, y=75)
-        Relationship=tk.Entry(self.textframe1, textvariable=self.CP_Relationship, width=40, bd=2, font=("arial", 12)).place(x=90, y=175)
-        CN=tk.Entry(self.textframe1, textvariable=self.CP_CN, width=40, bd=2, font=("arial", 12)).place(x=90, y=270)
-        EA=tk.Entry(self.textframe1, textvariable=self.CP_EA, width=40, bd=2, font=("arial", 12)).place(x=90, y=370)
-
+        PI_title= tk.Label(self.textframe1, text='Contact Person Details:', font=('times new roman bold', 16),wraplength=400, justify="center", fg='black').place(x=5,y=50)
+        border1 = tk.Frame(self.textframe1, bg='dark slate gray',relief='raised',bd=2, width=600,height=5).place(x=0,y=75)
+        border2 = tk.Frame(self.textframe1, bg='dark slate gray',relief='raised',bd=2, width=600,height=5).place(x=0,y=50)
 
         #Contact Person Labels
-        NAME = tk.Label(self.textframe1, text="Name: ",  font=("arial ",12)).place(x=20,y=75)
-        e1 = tk.Label(self.textframe1, text="*Example: Juan Dela Cruz", font=("arial ",8)).place(x=90,y=100)
-        r1 = tk.Label(self.textframe1, text="*Required",  fg='red',font=("arial ",8)).place(x=400,y=100)
+        s_CP_name = tk.Label(self.textframe1, text='Name:', font=('times new roman', 12)).place(x=5,y=80)
+        s_CP_Relationship = tk.Label(self.textframe1, text='Relationship:', font=('times new roman', 12)).place(x=5,y=108)
+        s_CP_CN = tk.Label(self.textframe1, text='Contact Number:', font=('times new roman', 12)).place(x=5,y=136)
+        s_CP_Address = tk.Label(self.textframe1, text='Address:', font=('times new roman', 12)).place(x=5,y=190)
 
-        RELATION = tk.Label(self.textframe1, text="Relation: ",  font=("arial ",12)).place(x=20,y=175)
-        e2 = tk.Label(self.textframe1, text="*Family/Father/Mother/Brother/Sister",  font=("arial ",8)).place(x=90,y=200)
-        r2 = tk.Label(self.textframe1, text="*Required",  fg='red',font=("arial ",8)).place(x=400,y=200)
+        #Contact Person Entries
 
-        CONTACT_NUMBER = tk.Label(self.textframe1,justify='left',wraplength=100, text="Contact Number: ",  font=("arial ",12)).place(x=20,y=250)
-        e2 = tk.Label(self.textframe1, text="*63+ 9** *** **** ",  font=("arial ",8)).place(x=90,y=300)
-        r2 = tk.Label(self.textframe1, text="*Required",  fg='red',font=("arial ",8)).place(x=400,y=300)
-            
-        EMAIL_ADDRESS = tk.Label(self.textframe1,justify='left',wraplength=100, text="Email Address: ",  font=("arial ",12)).place(x=20,y=350)
-        e2 = tk.Label(self.textframe1, text="*JuanDelaCruz@hotmail.com ",  font=("arial ",8)).place(x=90,y=400)
-        r2 = tk.Label(self.textframe1, text="*Required",  fg='red',font=("arial ",8)).place(x=400,y=400)
-
+        
+        
 
         #Button Frame 1
         self.buttonframe = tk.Frame(self.blank,relief='groove', bd=3, width=500, height=50  )
         self.buttonframe.place(x=492,y=450)
 
-        #Page 3 Back Button
-        pg3_back = tk.Button(self.buttonframe, text="< Back",font=("arial underline",12),command=self.back_to_page2)
-        pg3_back.place(x=5,y=5)
+        #Page 4 Back Button
+        pg3_back = tk.Button(self.buttonframe, text="< Back",font=("arial underline",12),command=self.back_to_page3)
+        pg3_back.place(x=5,y=3)
 
-        #Page 3 Next Button
-        pg3_next = tk.Button(self.buttonframe, text="Next >",font=("arial underline",12),command=self.next_to_page4)
-        pg3_next.place(x=430,y=5)
+        #Page 4 Confirm Button
+        pg3_next = tk.Button(self.buttonframe, text="Confirm",font=("arial underline",12),command=self.next_to_page5)
+        pg3_next.place(x=415,y=3)
 
 
-          
-        
+        self.SI.mainloop()
 
-        
-        self.HI.mainloop()
-
-    def back_to_page2(self):
+    def back_to_page3(self):
         print("HI")
 
-    def next_to_page4(self):
+    def next_to_page5(self):
         print("Hellow")
 
     def setvariables(self):

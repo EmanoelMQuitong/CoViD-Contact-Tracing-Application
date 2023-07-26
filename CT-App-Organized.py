@@ -118,6 +118,7 @@ class CCT:
             self.Name=tk.StringVar()
             self.Age=tk.StringVar()
             self.Status=tk.StringVar()
+            self.Status.set('Single')
             self.Address=tk.StringVar()
             self.Room=tk.StringVar()
 
@@ -145,7 +146,9 @@ class CCT:
             #Entries   
             entry_Name=tk.Entry(self.textframe, textvariable=self.Name, width=40, bd=2, font=("arial", 12)).place(x=90, y=75)
             entry_Age=tk.Entry(self.textframe, textvariable=self.Age, width=40, bd=2, font=("arial", 12)).place(x=90, y=150)
-            entry_Status=tk.Entry(self.textframe, textvariable=self.Status, width=40, bd=2, font=("arial", 12)).place(x=90, y=225)
+            entry_Status1=tk.Radiobutton(self.textframe, text='Single',font=("arial", 12),value='Single',variable=self.Status).place(x=125, y=225)
+            entry_Status2=tk.Radiobutton(self.textframe, text='Married',font=("arial", 12),value='Married',variable=self.Status).place(x=275, y=225)
+
             entry_Address=tk.Entry(self.textframe, textvariable=self.Address, width=40, bd=2, font=("arial", 12)).place(x=90, y=300)
             entry_Room=tk.Entry(self.textframe, textvariable=self.Room, width=40, bd=2, font=("arial", 12)).place(x=90, y=375)
             
@@ -166,9 +169,7 @@ class CCT:
             
             #Create 3rd window
                     
-            self.HI = tk.Tk()
-            
-            
+            self.HI = tk.Toplevel(self.welcome)
             self.HI.geometry("1000x500")
             self.HI.title("Covid Contact Tracing Application")
             self.HI.resizable(False,False)
@@ -193,16 +194,16 @@ class CCT:
             self.TextTitle = tk.Frame(self.textframe, relief='raise', bd=3,width=450, height=50).place(x=20,y=10)
 
             #Set Variables
-            V1 = tk.StringVar()
-            V1.set('Not yet')
-            S1 = tk.StringVar()
-            S1.set('Yes')
-            E1 = tk.StringVar()
-            E1.set('Yes')
-            CC1 = tk.StringVar()
-            CC1.set('Yes')
-            CT1 = tk.StringVar()
-            CT1.set('No')
+            self.V1 = tk.StringVar()
+            self.V1.set('Not yet')
+            self.S1 = tk.StringVar()
+            self.S1.set('Yes')
+            self.E1 = tk.StringVar()
+            self.E1.set('Yes')
+            self.CC1 = tk.StringVar()
+            self.CC1.set('Yes')
+            self.CT1 = tk.StringVar()
+            self.CT1.set('No')
 
             #Title 
             HDF = tk.Label(self.textframe, text="HEALTH DECLARATION:",  font=("arial bold ",16)).place(x=140,y=20)
@@ -211,37 +212,37 @@ class CCT:
             Vaccination = tk.Label(self.textframe, text="1.	Have you been vaccinated for COVID-19? ",  font=("arial ",10)).place(x=20,y=75)
             r1 = tk.Label(self.textframe, text="*Required",  fg='red',font=("arial ",8)).place(x=400,y=75)
             
-            V1_1 = tk.Radiobutton(self.textframe, text='Not yet', variable=V1, value='Not yet').place(x=50,y=100)
-            V1_2 = tk.Radiobutton(self.textframe, text='1st Dose', variable=V1, value='1st Dose').place(x=50,y=125)
-            V1_3 = tk.Radiobutton(self.textframe, text='2nd Dose', variable=V1, value='2nd Dose(Complete Vaccination)').place(x=200,y=100)
-            V1_4 = tk.Radiobutton(self.textframe, text='1st Booster Shot', variable=V1, value='1st Booster Shot').place(x=200,y=125)
-            V1_5 = tk.Radiobutton(self.textframe, text='2nd Booster Shot', variable=V1, value='2nd Booster Shot').place(x=300,y=100)
+            V1_1 = tk.Radiobutton(self.textframe, text='Not yet', variable=self.V1, value='Not yet').place(x=50,y=100)
+            V1_2 = tk.Radiobutton(self.textframe, text='1st Dose', variable=self.V1, value='1st Dose').place(x=50,y=125)
+            V1_3 = tk.Radiobutton(self.textframe, text='2nd Dose', variable=self.V1, value='2nd Dose(Complete Vaccination)').place(x=200,y=100)
+            V1_4 = tk.Radiobutton(self.textframe, text='1st Booster Shot', variable=self.V1, value='1st Booster Shot').place(x=200,y=125)
+            V1_5 = tk.Radiobutton(self.textframe, text='2nd Booster Shot', variable=self.V1, value='2nd Booster Shot').place(x=300,y=100)
 
 
             Symptoms = tk.Label(self.textframe, text="2.	Are you experiencing any symptoms in the past 7 days such as body pains, headache, sore throat, fever, diarrhea, cough, colds, shortness of breath, loss of taste, or loss of smell?",justify="left", wraplength=450, font=("arial ",8)).place(x=20,y=150)
             
-            S1_1 = tk.Radiobutton(self.textframe, text='Yes', variable=S1, value='Yes').place(x=50,y=200)
-            S1_2 = tk.Radiobutton(self.textframe, text='No', variable=S1, value='No').place(x=200,y=200)
+            S1_1 = tk.Radiobutton(self.textframe, text='Yes', variable=self.S1, value='Yes').place(x=50,y=200)
+            S1_2 = tk.Radiobutton(self.textframe, text='No', variable=self.S1, value='No').place(x=200,y=200)
             
 
             Exposure = tk.Label(self.textframe, text="3.	Have you had exposure to a probable or confirmed case in the last 14 days?",  justify='left',wraplength=450,font=("arial ",10)).place(x=20,y=250)
             
-            E1_1 = tk.Radiobutton(self.textframe, text='Yes', variable=E1, value='Yes').place(x=50,y=290)
-            E1_2 = tk.Radiobutton(self.textframe, text='No', variable=E1, value='No').place(x=200,y=290)
-            E1_3 = tk.Radiobutton(self.textframe, text='Uncertain', variable=E1, value='Uncertain').place(x=350,y=290)
+            E1_1 = tk.Radiobutton(self.textframe, text='Yes', variable=self.E1, value='Yes').place(x=50,y=290)
+            E1_2 = tk.Radiobutton(self.textframe, text='No', variable=self.E1, value='No').place(x=200,y=290)
+            E1_3 = tk.Radiobutton(self.textframe, text='Uncertain', variable=self.E1, value='Uncertain').place(x=350,y=290)
 
             CovidContact = tk.Label(self.textframe, text="4.	Have you had contact with somebody with body pains, headache, sore throat, fever, diarrhea, cough, colds, shortness of breath, loss of taste, or loss of smell in the past 7 days?", justify='left',wraplength=450,font=("arial ",8)).place(x=20,y=325)
 
-            CC1_1 = tk.Radiobutton(self.textframe, text='Yes', variable=CC1, value='Yes').place(x=50,y=370)
-            CC1_2 = tk.Radiobutton(self.textframe, text='No', variable=CC1, value='No').place(x=200,y=370)
-            CC1_3 = tk.Radiobutton(self.textframe, text='Uncertain', variable=CC1, value='Uncertain').place(x=350,y=370)
+            CC1_1 = tk.Radiobutton(self.textframe, text='Yes', variable=self.CC1, value='Yes').place(x=50,y=370)
+            CC1_2 = tk.Radiobutton(self.textframe, text='No', variable=self.CC1, value='No').place(x=200,y=370)
+            CC1_3 = tk.Radiobutton(self.textframe, text='Uncertain', variable=self.CC1, value='Uncertain').place(x=350,y=370)
 
             CovidTest = tk.Label(self.textframe, text="5.	Have you been tested for COVID-19 in the last 14 days?",  font=("arial ",10)).place(x=20,y=400)
 
-            CT1_1 = tk.Radiobutton(self.textframe, text='No', variable=CT1, value='No').place(x=50,y=425)
-            CT1_2 = tk.Radiobutton(self.textframe, text='Yes-Positive', variable=CT1, value='Yes-Positive').place(x=200,y=425)
-            CT1_3 = tk.Radiobutton(self.textframe, text='Yes-Negative', variable=CT1, value='Yes-Negative').place(x=50,y=450)
-            CT1_4 = tk.Radiobutton(self.textframe, text='Yes-Pending', variable=CT1, value='Yes-Pending').place(x=200,y=450)   
+            CT1_1 = tk.Radiobutton(self.textframe, text='No', variable=self.CT1, value='No').place(x=50,y=425)
+            CT1_2 = tk.Radiobutton(self.textframe, text='Yes-Positive', variable=self.CT1, value='Yes-Positive').place(x=200,y=425)
+            CT1_3 = tk.Radiobutton(self.textframe, text='Yes-Negative', variable=self.CT1, value='Yes-Negative').place(x=50,y=450)
+            CT1_4 = tk.Radiobutton(self.textframe, text='Yes-Pending', variable=self.CT1, value='Yes-Pending').place(x=200,y=450)   
 
 
 
@@ -298,18 +299,30 @@ class CCT:
             pg3_next = tk.Button(self.buttonframe, text="Next >",font=("arial underline",12),command=self.next_to_page4)
             pg3_next.place(x=430,y=5)
 
-
-            
-            
-
-            
+            self.HI.protocol("WM_DELETE_WINDOW", self.on_closing)
             self.HI.mainloop()
 
     def back_to_page2(self):
-            print("HI")
+            self.HI.withdraw()
+            self.PI.deiconify()
+
+
 
     def next_to_page4(self):
-            print("Hellow")
+        print(self.Name.get())
+        print(self.Age.get())
+        print(self.Status.get())
+        print(self.Address.get())
+        print(self.Room.get())
+        print(self.V1.get())
+        print(self.S1.get())
+        print(self.E1.get())
+        print(self.CC1.get())
+        print(self.CT1.get())
+        print(self.CP_Name.get())
+        print(self.CP_Relationship.get())
+        print(self.CP_CN.get())
+        print(self.CP_EA.get())
 
 
 
