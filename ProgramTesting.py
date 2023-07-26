@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import PhotoImage
 
-class CCT:
+class Data_Entry:
 
     def __init__(self):
 
@@ -36,7 +36,7 @@ class CCT:
         self.textframe1.place(x=492,y=0)
 
         #Personal Information Title
-        PI_title= tk.Label(self.textframe, text='Personal Information:', font=('times new roman bold', 16),wraplength=400, justify="center", fg='black').place(x=5,y=50)
+        PI_title= tk.Label(self.textframe, text='Personal Information:', font=('time    s new roman bold', 16),wraplength=400, justify="center", fg='black').place(x=5,y=50)
         border1 = tk.Frame(self.textframe, bg='dark slate gray',relief='raised',bd=2, width=600,height=5).place(x=0,y=75)
         border2 = tk.Frame(self.textframe, bg='dark slate gray',relief='raised',bd=2, width=600,height=5).place(x=0,y=50)
         
@@ -114,5 +114,5 @@ class CCT:
     def setvariables(self):
         pass
 
-cct_app = CCT()
+cct_app = Data_Entry()
 
