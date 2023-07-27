@@ -4,6 +4,8 @@ from tkinter import PhotoImage
 
 pos = -1
 class Search_Entry():
+    
+    #User - Code Entry
     def __init__(self):
         self.root = tk.Tk()
 
@@ -43,6 +45,7 @@ class Search_Entry():
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
         self.root.mainloop()
 
+    #Search window
     def Enter(self):
         if self.User.get()!='User1' and self.Pass.get()!='qwerty123':
             messagebox.showerror('INVALID', 'Username and Password is Incorrect.')
@@ -78,8 +81,7 @@ class Search_Entry():
             self.SV.set('Please enter name...')
             
             #Search Entry
-            search_entry = tk.Entry(self.Main_frame, width =50,relief='sunken',textvariable=self.SV, bd=3,font=('times new roman bold', 20)).place(x=175,y=5)
-
+            search_entry = tk.Entry(self.Main_frame, width =40,relief='sunken',textvariable=self.SV,fg ='gray', bd=3,font=('arial', 20)).place(x=175,y=5)
             
             #Text frame 1
             self.textframe = tk.Frame(self.blank, relief='groove',bd=3, width=495, height=500 )
@@ -209,11 +211,23 @@ class Search_Entry():
             self.SE.protocol("WM_DELETE_WINDOW", self.on_closing)
             self.SE.mainloop()
 
+    #Reset search bar
     def Reset1(self):
-        print("Reset")
+        self.SV.set('Please enter name...')
 
-    def Finish(self):
+    def Reset2(self):
+        self.fin.destroy()
+        self.SE.deiconify()
+        self.SV.set('Please enter name...')
         
+    #Finish Program
+    def Finish(self):
+        self.root.destroy()
+        messagebox.showinfo("Contact Tracing Application", "Thank you for using my program!")
+
+    #Scan the file text to search for the name inserted
+    def search(self):
+        self.SE.withdraw()
         #Set Variables
         #Personal Information Variables
         self.Name.set(self.change()[self.search_name()])
@@ -236,7 +250,7 @@ class Search_Entry():
         self.CP_EA.set(self.change()[self.search_name()+13])
         
 
-        
+        #Create a TopLevel window
         self.fin = tk.Toplevel(self.SE)
         self.fin.geometry("1000x500")
         self.fin.title("Covid Contact Tracing Application")
@@ -256,7 +270,7 @@ class Search_Entry():
         self.TextTitle1 = tk.Frame(self.Main_frame1, relief='raise', bd=3,width=986, height=50).place(x=2,y=2)
 
         #Main Title
-        main_title1 = tk.Label(self.Main_frame1, text='Please confirm the following information...', font=('times new roman bold', 20)).place(x=3,y=5)
+        main_title1 = tk.Label(self.Main_frame1, text=self.SV.get().upper(), font=('times new roman bold', 20)).place(x=3,y=5)
 
         #Text frame 1
         self.textframe3 = tk.Frame(self.blank1, relief='groove',bd=3, width=495, height=500 )
@@ -284,7 +298,7 @@ class Search_Entry():
         s_birthday = tk.Label(self.textframe3, text=self.Birthday.get(), font=('times new roman', 12)).place(x=100,y=108)
         s_status = tk.Label(self.textframe3, text=self.Status.get(), font=('times new roman', 12)).place(x=100,y=136)
         s_room = tk.Label(self.textframe3, text=self.Room.get(), font=('times new roman', 12)).place(x=100,y=162)
-        s_address = tk.Label(self.textframe3, text=self.Address.get(),wraplength=200,justify='left', font=('times new roman', 10)).place(x=100,y=190)
+        s_address = tk.Label(self.textframe3, text=self.Address.get(),wraplength=300,justify='left', font=('times new roman', 11)).place(x=100,y=190)
 
 
         #Health Declaration Title
@@ -343,21 +357,18 @@ class Search_Entry():
         self.buttonframe = tk.Frame(self.blank1,relief='groove', bd=3, width=500, height=50  )
         self.buttonframe.place(x=492,y=450)
 
-        #Page 4 Back Button
-        pg3_back = tk.Button(self.buttonframe, text="< Back",font=("arial underline",12),command=self.back_to_page3)
-        pg3_back.place(x=5,y=3)
+        #Reset Button
+        Resetbutton = tk.Button(self.buttonframe, text="Search again...",font=("arial underline",12),command=self.Reset2)
+        Resetbutton.place(x=5,y=3)
 
-        #Page 4 Confirm Button
-        pg3_next = tk.Button(self.buttonframe, text="Confirm",font=("arial underline",12),command=self.confirm)
-        pg3_next.place(x=415,y=3)
+        #Finish Button
+        Finish = tk.Button(self.buttonframe, text="Finish",font=("arial underline",12),command=self.Finish)
+        Finish.place(x=415,y=3)
 
         self.fin.protocol("WM_DELETE_WINDOW", self.on_closing)
         self.fin.mainloop()
-
-    def search(self):
-        print("Search")
-        return self.SC_name.set(self.change()[self.search_name()])
-
+        
+    #Reset User and Code
     def Reset(self):
         self.User.set('******')
         self.Pass.set('******')
@@ -384,7 +395,7 @@ class Search_Entry():
     def search_name(self):
         i = 0
         while i< len(self.modified):
-            if self.modified[i] == str(self.SV.get()):
+            if self.modified[i] == str(self.SV.get().upper()):
                 globals()['pos'] = i
                 return pos
             i = i+1
