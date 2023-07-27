@@ -49,6 +49,7 @@ class store:
         personal_info = open('Stored Informations.txt', 'a')
         personal_info.write(self.__name), personal_info.write('\n')
         personal_info.write(str(self.__birthday)), personal_info.write('\n')
+        personal_info.write(str(self.__status)), personal_info.write('\n')
         personal_info.write(str(self.__address)), personal_info.write('\n')
         personal_info.write(str(self.__room)), personal_info.write('\n')
         personal_info.write(str(self.__Vaccination)), personal_info.write('\n') 

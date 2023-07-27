@@ -3,7 +3,7 @@ from tkinter import messagebox
 from tkinter import PhotoImage
 from store import store
 
-class CCT:
+class Data_Entry:
 
     def __init__(self):
 
@@ -151,7 +151,6 @@ class CCT:
             entry_Birthday=tk.Entry(self.textframe, textvariable=self.Birthday, width=40, bd=2, font=("arial", 12)).place(x=90, y=150)
             entry_Status1=tk.Radiobutton(self.textframe, text='Single',font=("arial", 12),value='Single',variable=self.Status).place(x=125, y=225)
             entry_Status2=tk.Radiobutton(self.textframe, text='Married',font=("arial", 12),value='Married',variable=self.Status).place(x=275, y=225)
-
             entry_Address=tk.Entry(self.textframe, textvariable=self.Address, width=40, bd=2, font=("arial", 12)).place(x=90, y=300)
             entry_Room=tk.Entry(self.textframe, textvariable=self.Room, width=40, bd=2, font=("arial", 12)).place(x=90, y=375)
             
@@ -306,11 +305,12 @@ class CCT:
             self.HI.protocol("WM_DELETE_WINDOW", self.on_closing)
             self.HI.mainloop()
 
-    #Return 
+    #Return to Page 2
     def back_to_page2(self):
             self.HI.withdraw()
             self.PI.deiconify()
 
+    #Proceed to Page 4
     def move_to_page4(self):
         if self.CP_Name.get()=='' or self.CP_Relationship.get()=='' or self.CP_CN.get()=='' or self.CP_EA.get()=='':
             messagebox.showinfo(title="INVALID!", message="Please fill all the entry boxes.")
@@ -439,22 +439,18 @@ class CCT:
             self.SI.protocol("WM_DELETE_WINDOW", self.on_closing)
             self.SI.mainloop()
 
+    #Return to Page 3
     def back_to_page3(self):
         self.SI.withdraw()
         self.HI.deiconify()
-
+    
+    #Store and Finish the Program
     def confirm(self):
         Store_inf = store(self.Name.get(),self.Birthday.get(),self.Status.get(),self.Room.get(),self.Address.get(), self.V1.get(),self.S1.get(),self.E1.get(),self.CC1.get(),
                           self.CT1.get(),self.CP_Name.get(),self.CP_Relationship.get(),self.CP_CN.get(),self.CP_EA.get(),)
         Store_inf.keep()
         self.welcome.destroy()
         messagebox.showinfo(title="Covid Contact Tracing Applicaiton", message="Thank you for your cooperation!")
-        
-        
 
 
-
-
-
-cct_app = CCT()
-
+dample = Data_Entry()   
