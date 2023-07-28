@@ -7,43 +7,47 @@ class Search_Entry():
     
     #User - Code Entry
     def __init__(self):
-        self.root = tk.Tk()
+        self.search1 = tk.Toplevel()
 
         #Create a main frame
-        self.root.geometry("200x200")
-        self.root.title("Covid Contact Tracing Application")
-        self.root.resizable(False,False)
+        self.search1.geometry("200x200")
+        self.search1.title("Covid Contact Tracing Application")
+        self.search1.resizable(False,False)
 
         #Change Application Icon
         Change_Icon = 'COVID ICON.png' 
         new_icon =tk.PhotoImage(file=Change_Icon)
-        self.root.iconphoto(True, new_icon)
+        self.search1.iconphoto(True, new_icon)
 
-        #Create Frame
-        Main_frame = tk.Frame(self.root, bg='dark slate gray', relief='sunken', bd=2).pack(fill="both", expand=1)
+        # Create Frame
+        use_Main_frame = tk.Frame(self.search1, bg='dark slate gray', relief='sunken', bd=2)
+        use_Main_frame.pack(fill="both", expand=1)
         
-        #Create Label
-        Username = tk.Label(Main_frame, text="Username: ", fg='white',bg='dark slate gray', font=("helvetica",10)).place(x=65,y=50)
-        Password = tk.Label(Main_frame, text="Password: ", fg='white',bg='dark slate gray', font=("helvetica",10)).place(x=65,y=125)
-        
+         # Create Label
+        Username = tk.Label(use_Main_frame, text="Username: ", fg='white', bg='dark slate gray', font=("helvetica", 10))
+        Username.place(x=65, y=50)
+        Password = tk.Label(use_Main_frame, text="Password: ", fg='white', bg='dark slate gray', font=("helvetica", 10))
+        Password.place(x=65, y=125)
+
         #Create Variables
         self.User = tk.StringVar()
         self.Pass = tk.StringVar()
         self.User.set('******')
         self.Pass.set('******')
 
-        #Create Entries
-        username = tk.Entry(Main_frame, font=("helvetica",10), justify='center', textvariable=self.User, relief='sunken', bd=2).place(x=25,y=25)
-        password = tk.Entry(Main_frame, font=("helvetica",10),justify='center', textvariable=self.Pass, relief='sunken', bd=2, show='*').place(x=25,y=100)
-
+        # Create Entries
+        username = tk.Entry(use_Main_frame, font=("helvetica", 10), justify='center', textvariable=self.User, relief='sunken', bd=2)
+        username.place(x=25, y=25)
+        password = tk.Entry(use_Main_frame, font=("helvetica", 10), justify='center', textvariable=self.Pass, relief='sunken', bd=2, show='*')
+        password.place(x=25, y=100)
 
         #Create Enter Button
-        enter = tk.Button(Main_frame, text='ENTER', font=('arial', 12), command=self.Enter). place(x=125, y=160)
+        enter = tk.Button(use_Main_frame, text='ENTER', font=('arial', 12), command=self.Enter). place(x=125, y=160)
         #Create Reset Button
-        reset = tk.Button(Main_frame, text='RESET', font=('arial', 12), command= self.Reset). place(x=10, y=160)
+        reset = tk.Button(use_Main_frame, text='RESET', font=('arial', 12), command= self.Reset). place(x=10, y=160)
 
-        self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
-        self.root.mainloop()
+        self.search1.protocol("WM_DELETE_WINDOW", self.on_closing)
+        self.search1.mainloop()
 
     #Search window
     def Enter(self):
@@ -51,9 +55,9 @@ class Search_Entry():
             messagebox.showerror('INVALID', 'Username and Password is Incorrect.')
 
         else:
-            self.root.withdraw()
+            self.search1.withdraw()
 
-            self.SE = tk.Toplevel(self.root)
+            self.SE = tk.Toplevel(self.search1)
             
             self.SE.geometry("1000x500")
             self.SE.title("Covid Contact Tracing Application")
@@ -222,7 +226,7 @@ class Search_Entry():
         
     #Finish Program
     def Finish(self):
-        self.root.destroy()
+        self.search1.destroy()
         messagebox.showinfo("Contact Tracing Application", "Thank you for using my program!")
 
     #Scan the file text to search for the name inserted
@@ -375,7 +379,7 @@ class Search_Entry():
 
     def on_closing(self):
         if messagebox.askyesno(title="Are you sure?", message="Do you really want to quit?"):
-            self.root.destroy()
+            self.search1.destroy()
     
     #Read and Modify the Text from the Text file
     def change(self):
@@ -401,11 +405,6 @@ class Search_Entry():
             i = i+1
 
         return messagebox.showerror("INVALID!", "Entered name was not found!")
-sample = Search_Entry()
-
-
-
-
 
 
 

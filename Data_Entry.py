@@ -8,7 +8,7 @@ class Data_Entry:
     def __init__(self):
 
 
-        self.welcome = tk.Tk()
+        self.welcome = tk.Toplevel()
         
         #Change Application Icon
         Change_Icon = 'COVID ICON.png' 
@@ -453,4 +453,3 @@ class Data_Entry:
         messagebox.showinfo(title="Covid Contact Tracing Applicaiton", message="Thank you for your cooperation!")
 
 
-dample = Data_Entry()   
