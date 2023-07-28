@@ -35,11 +35,9 @@ A facilitator will be able to Search Vital Informations. It allows the facilitat
 ```
 If the user wanted to erase their inputs, click 'Reset'.
 
-2. When correctly entered the required information, it will direct the user to the search window which allows search entry. In this window, there is a search bar above next to search button.
-
-          Below there are personal information where '*' found and change upon search is clicked if the searchee is present in the saved informations.
+2. When correctly entered the required information, it will direct the user to the search window which allows search entry. In this window, there is a search bar above next to search button.Below there are personal information where '*' found and change upon search is clicked if the searchee is present in the saved informations.
    
-          Below there is 'Reset' and 'Finish' button. 'Reset' button clears the informations in the search bar. 'Finish' button closes the program.
+   Below there is 'Reset' and 'Finish' button. 'Reset' button clears the informations in the search bar. 'Finish' button closes the program.
 
 
 4. If search button is clicked, personal informations where '*' found and changed upon search is clicked. If the searchee is present in the saved informations, it will automatically change. If not, it will remain and inform the user that it is not found.
